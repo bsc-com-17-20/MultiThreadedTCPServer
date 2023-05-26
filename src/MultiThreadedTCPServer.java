@@ -18,7 +18,7 @@ public class MultiThreadedTCPServer {
                 System.out.println("New client connected: " + clienSocket.getInetAddress().getHostAddress());
 
                 // Create a new task and submit it to the thread pool
-                threadpool.execute(null);
+                threadpool.execute(new ClientHandler(clienSocket));
             }
         } catch (IOException e) {
             e.printStackTrace();
